@@ -84,6 +84,15 @@ The app is opinionated and requires minimal configuration. The user inputs their
 
 When a meal is vetoed, the algorithm recalculates the rest of the week to ensure nutritional targets are still met.
 
+### Settings
+
+A gear icon in the header provides two toggles:
+
+- **Units** — metric (g, ml, cm, kg) or imperial (oz/lbs, tsp/tbsp/cups, ft/in, lbs) with smart unit selection (e.g., "3 lbs" not "48 oz")
+- **Theme** — light or dark mode
+
+Settings persist to localStorage. The backend always works in metric; the frontend converts for display and converts back before API requests.
+
 ## Output
 
 A clean, minimal PDF or HTML page containing:
