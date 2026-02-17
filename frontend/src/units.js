@@ -53,9 +53,9 @@ export function formatIngredient(quantity, unit, system) {
 
 export function formatHeight(cm, system) {
   if (system === 'imperial') {
-    const totalInches = cm / CM_PER_INCH;
+    const totalInches = Math.round(cm / CM_PER_INCH);
     const feet = Math.floor(totalInches / 12);
-    const inches = Math.round(totalInches % 12);
+    const inches = totalInches % 12;
     return `${feet}'${inches}"`;
   }
   return `${round(cm)} cm`;
