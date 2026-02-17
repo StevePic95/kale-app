@@ -1,4 +1,9 @@
+import { useSettings } from '../context/SettingsContext';
+import { formatHeight, formatBodyWeight } from '../units';
+
 export default function MemberCard({ member, onRemove }) {
+  const { units } = useSettings();
+
   return (
     <div className="member-card">
       <div className="member-card-header">
@@ -16,7 +21,7 @@ export default function MemberCard({ member, onRemove }) {
         <span className="detail-sep">|</span>
         <span>{member.sex}</span>
         <span className="detail-sep">|</span>
-        <span>{member.heightCm} cm, {member.weightKg} kg</span>
+        <span>{formatHeight(member.heightCm, units)}, {formatBodyWeight(member.weightKg, units)}</span>
         <span className="detail-sep">|</span>
         <span>{member.activityLevel}</span>
       </div>

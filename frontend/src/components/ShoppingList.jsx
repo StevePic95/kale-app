@@ -1,4 +1,9 @@
+import { useSettings } from '../context/SettingsContext';
+import { formatIngredient } from '../units';
+
 export default function ShoppingList({ shoppingList }) {
+  const { units } = useSettings();
+
   if (!shoppingList || shoppingList.length === 0) {
     return <p>No shopping list available.</p>;
   }
@@ -31,7 +36,7 @@ export default function ShoppingList({ shoppingList }) {
               <li key={index} className="shopping-item">
                 <span className="item-name">{item.ingredientName}</span>
                 <span className="item-qty">
-                  {item.totalQuantity} {item.unit}
+                  {formatIngredient(item.totalQuantity, item.unit, units).display}
                 </span>
                 {item.estimatedCost != null && (
                   <span className="item-cost">

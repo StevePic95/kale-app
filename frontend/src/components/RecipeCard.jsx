@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useSettings } from '../context/SettingsContext';
+import { formatIngredient } from '../units';
 
 export default function RecipeCard({ recipe }) {
+  const { units } = useSettings();
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -35,7 +38,7 @@ export default function RecipeCard({ recipe }) {
               <ul>
                 {recipe.ingredients.map((ing, i) => (
                   <li key={i}>
-                    {ing.quantity} {ing.unit} {ing.name}
+                    {formatIngredient(ing.quantity, ing.unit, units).display} {ing.name}
                   </li>
                 ))}
               </ul>
