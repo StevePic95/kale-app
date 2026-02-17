@@ -107,6 +107,42 @@ A clean, minimal PDF or HTML page containing:
 - **Backend** — Azure App Service Free Tier or Railway free tier
 - **Database** — Free-tier Postgres provider (Neon, Supabase, etc.)
 
+## Local Development
+
+### Prerequisites
+
+- [.NET 9 SDK](https://dotnet.microsoft.com/download)
+- [Node.js](https://nodejs.org/) (v18+)
+- [Docker](https://www.docker.com/) (for Postgres)
+
+### Quick Start
+
+```bash
+./start.sh
+```
+
+This starts Postgres, the backend (with auto-migration and seed data), and the frontend dev server. The app will be available at **http://localhost:5173**.
+
+### Manual Start
+
+```bash
+# 1. Start Postgres
+docker compose up -d
+
+# 2. Start the backend (applies migrations and seeds data automatically)
+cd backend/Kale.Api
+dotnet run
+
+# 3. In another terminal, start the frontend
+cd frontend
+npm install
+npm run dev
+```
+
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:5000
+- Swagger UI: http://localhost:5000/swagger
+
 ## Future Plans
 
 - Independent ingredient database (beyond USDA)
