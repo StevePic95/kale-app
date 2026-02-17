@@ -2,6 +2,7 @@ import { useState } from 'react';
 import HouseholdSetup from './components/HouseholdSetup';
 import MealPlanView from './components/MealPlanView';
 import PlanOutput from './components/PlanOutput';
+import SettingsPanel from './components/SettingsPanel';
 
 function App() {
   const [step, setStep] = useState(1);
@@ -42,6 +43,7 @@ function App() {
           <span className="step-line" />
           <span className={`step-dot ${step >= 3 ? 'active' : ''}`}>3</span>
         </div>
+        <SettingsPanel />
       </header>
 
       <main className="app-main">
