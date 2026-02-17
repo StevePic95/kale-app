@@ -24,10 +24,6 @@ export function SettingsProvider({ children }) {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-  }, []);
-
   return (
     <SettingsContext.Provider value={{ units, setUnits, theme, setTheme }}>
       {children}
